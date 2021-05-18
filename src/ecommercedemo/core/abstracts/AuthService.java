@@ -1,9 +1,9 @@
 package ecommercedemo.core.abstracts;
 
-import googleAuth.GoogleUser;
+import java.util.List;
 
 public interface AuthService {
 	
-	GoogleUser Auth(String email, String password);
+	List<String> auth(String email, String password);
 	
 }

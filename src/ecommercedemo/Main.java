@@ -39,6 +39,9 @@ public class Main {
 		userService.registerWithAuthService("bbb@gmail.com", "bbbbbb");
 		userService.registerWithAuthService("ccc@gmail.com", "cccccc");
 		
+		System.out.println("------ Register Failed With Auth Service ------");
+		userService.registerWithAuthService("xxx@gmail.com", "xxxxxx");		
+		
 		System.out.println("------ Login ------");
 		userService.login("merveucer08@gmail.com", "123456");
 		

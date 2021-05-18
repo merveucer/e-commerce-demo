@@ -57,12 +57,14 @@ public class UserManager implements UserService {
 	@Override
 	public void registerWithAuthService(String email, String password) {
 
-		var googleUser = authService.Auth(email, password);
+		var userInformations = authService.auth(email, password);
 
-		if (googleUser != null) {
+		if (userInformations != null) {
 			
-			userDao.add(new User(getAll().size() + 1, googleUser.getFirstName(), googleUser.getLastName(), googleUser.getEmail(), googleUser.getPassword()));
-			System.out.println(googleUser.getEmail() + " adresine ait google hesabı kullanılarak üyelik işlemleri tamamlanmıştır.");
+			userDao.add(new User(getAll().size() + 1, userInformations.get(0), userInformations.get(1), userInformations.get(2), userInformations.get(3)));
+			System.out.println(userInformations.get(2) + " adresine ait hesap kullanılarak üyelik işlemleri tamamlanmıştır.");
+		} else {
+			System.out.println("Lütfen bilgilerinizi kontrol ederek yeniden deneyiniz.");
 		}
 	}
 
